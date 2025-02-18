@@ -82,10 +82,10 @@ class Router
         }
     }
 
-    private function handleNotFound($message = "404 - Página no encontrada")
+    private function handleNotFound()
     {
         http_response_code(404);
-        echo $message;
+        view('errors/404');
         exit;
     }
 
