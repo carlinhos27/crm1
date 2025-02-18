@@ -5,7 +5,14 @@ class ClientesController extends Controller
     {
         $clienteModel = new Cliente();
         $clientes = $clienteModel->getAllClientes();
-        $this->renderView("clientes/index", ["clientes" => $clientes]);
+
+        $title = "Lista de Clientes";
+
+        ob_start();
+        view("clientes/index", ["clientes" => $clientes]);
+        $content = ob_get_clean();
+
+        view("layouts/layout", compact("title", "content"));
     }
 
     public function create()
@@ -13,12 +20,16 @@ class ClientesController extends Controller
         $operadorModel = new User();
         $empresaModel = new Empresa();
 
-        $operadores = $operadorModel->all(); // Obtener todos los operadores
-        $empresas = $empresaModel->all(); // Obtener todas las empresas
-        $this->renderView("clientes/crear", [
-            "operadores" => $operadores,
-            "empresas" => $empresas
-        ]);
+        $operadores = $operadorModel->all();
+        $empresas = $empresaModel->all();
+
+        $title = "Crear Cliente";
+
+        ob_start();
+        view("clientes/crear", compact("operadores", "empresas"));
+        $content = ob_get_clean();
+
+        view("layouts/layout", compact("title", "content"));
     }
 
     public function editar($id)
@@ -27,7 +38,7 @@ class ClientesController extends Controller
         $operadorModel = new User();
         $empresaModel = new Empresa();
 
-        $cliente = $clienteModel->find($id); // Buscar cliente por ID
+        $cliente = $clienteModel->find($id);
         $operadores = $operadorModel->all();
         $empresas = $empresaModel->all();
 
@@ -35,11 +46,13 @@ class ClientesController extends Controller
             die("Cliente no encontrado");
         }
 
-        $this->renderView("clientes/crear", [
-            "cliente" => $cliente,
-            "operadores" => $operadores,
-            "empresas" => $empresas
-        ]);
+        $title = "Editar Cliente";
+
+        ob_start();
+        view("clientes/crear", compact("cliente", "operadores", "empresas"));
+        $content = ob_get_clean();
+
+        view("layouts/layout", compact("title", "content"));
     }
 
     public function update($id)
@@ -51,6 +64,7 @@ class ClientesController extends Controller
             exit;
         }
     }
+
     public function store()
     {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {

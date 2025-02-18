@@ -1,8 +1,4 @@
-<!-- app/views/clientes/index.php -->
-<?php
-$title = "Lista de Clientes";
-ob_start();
-?>
+
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2 class="mb-0">Lista de Clientes</h2>
@@ -57,7 +53,3 @@ ob_start();
         </table>
     </div>
 </div>
-<?php
-$content = ob_get_clean();
-require_once '../app/views/layouts/layout.php';
-?>

@@ -3,7 +3,6 @@
 $navRoutes = [
     'home' => 'Inicio',
     'clientes' => 'Clientes',
-    'clientes/crear' => 'Nuevo Cliente',
     'ventas' => 'Ventas',
     'configuracion' => 'Configuración'
 ];

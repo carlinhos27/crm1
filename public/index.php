@@ -3,6 +3,10 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+
+require_once '../helpers/helpers.php';
+
+
 // Autoload para cargar clases de `app/core/`, `app/controllers/` y `app/models/`
 spl_autoload_register(function ($class) {
     $paths = ['../app/core/', '../app/controllers/', '../app/models/'];

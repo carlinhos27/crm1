@@ -4,7 +4,6 @@ $esEdicion = isset($cliente);
 $titulo = $esEdicion ? "Editar Cliente" : "Crear Cliente";
 $accion = $esEdicion ? "/clientes/actualizar/" . $cliente['id'] : "/clientes/guardar";
 
-ob_start();
 ?>
 <div class="row justify-content-center">
     <div class="col-md-6">
@@ -69,7 +68,3 @@ ob_start();
         </div>
     </div>
 </div>
-<?php
-$content = ob_get_clean();
-require_once '../app/views/layouts/layout.php';
-?>

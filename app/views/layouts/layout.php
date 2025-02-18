@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <?php include __DIR__ . '/navbar.php'; ?>
+    <?php view('layouts/navbar'); ?>
 
     <div class="container mt-5">
         <?= $content ?>
